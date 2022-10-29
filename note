@@ -1,0 +1,47 @@
+install
+python main.py install-plugin-server \
+    -url http://atlasdemo.devsamurai.com:8080/ \
+    -u admin \
+    -p dsvn123 \
+    tmp/tb-timesheet-2.1.0.obr
+
+python3 src/main.py remove-plugin-server \
+  -url https://jira2.demo.devsamurai.com/ \
+  -u devops \
+  -p M7RhP9eACaznsK \
+  com.devsamurai.plugin.jira.tb-timesheet
+
+Send to mock server
+python3 src/main.py remove-plugin-server \
+  -url https://df717dc1-f3db-4263-b5db-81f00eb5ef44.mock.pstmn.io/ \
+  -u devops \
+  -p M7RhP9eACaznsK \
+  com.devsamurai.plugin.jira.tb-timesheet
+
+install
+python src/main.py install-plugin-server \
+    -url https://jira2.demo.devsamurai.com/ \
+    -u devops \
+    -p M7RhP9eACaznsK \
+    tmp/tb-timesheet-2.2.0.obr
+
+install
+python3 src/main.py install-plugin-server \
+    -url https://jira3.demo.devsamurai.com/ \
+    -u devops \
+    -p DYY5mh5ssURdzz \
+    tmp/story-mapping-7.1.1.obr
+
+remove
+python3 src/main.py remove-plugin-server \
+  -url https://jira3.demo.devsamurai.com/  \
+  -u devops \
+  -p DYY5mh5ssURdzz \
+  com.devsamurai.plugin.jira.team-board
+
+install
+python3 src/main.py install-plugin-server \
+  -url https://jira4.demo.devsamurai.com/ \
+  -u admin \
+  -p kjD9XKMZpSzdW6 \
+  /Users/thachnguyen/Work/autotest/tmp/tb-timesheet-2.2.0.obr
