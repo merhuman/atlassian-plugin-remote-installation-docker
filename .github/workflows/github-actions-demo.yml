@@ -1,10 +1,11 @@
 name: Sync to Upstream
+run-name: Sync fork
 
-on: [push]
+on:
+  [push]
   # schedule:
   #   - cron: "12 7 * * 1,4"
-    # scheduled at 07:12 every Monday and Thursday
-  workflow_dispatch:
+  # scheduled at 07:12 every Monday and Thursday
 
 jobs:
   sync_with_upstream:
