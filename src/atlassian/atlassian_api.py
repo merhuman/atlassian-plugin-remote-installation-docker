@@ -33,8 +33,17 @@ class AtlassianServerAPI:
         username: str,
         password: str,
         session: requests.Session | None = None,
-        timeout: int = 30,
+        timeout: float = 30,
     ) -> None:
+        """Atlassian Server API client
+
+        Args:
+            url (str): instance URL
+            username (str): username to login
+            password (str): password to login
+            session (requests.Session | None, optional): requests session to inherit. Defaults to None.
+            timeout (float, optional): default timeout for API call. Defaults to 30.
+        """
         self.logger = logging.getLogger(__name__)
         self.url = url.strip("/")
         self.timeout = timeout
@@ -57,14 +66,13 @@ class AtlassianServerAPI:
         json=None,
         files=None,
         allow_redirects: bool = True,
+        timeout: float = 0,
     ):
         if headers is None:
             headers = AtlassianServerAPIHeaders.DEFAULT
         if files is None:
             if data:
                 data = json_dumps(data)
-            if json:
-                json = json_dumps(data)
 
         req_url = f"{self.url}{path}"
         if url:
@@ -77,7 +85,7 @@ class AtlassianServerAPI:
             data=data,
             json=json,
             files=files,
-            timeout=self.timeout,
+            timeout=timeout if timeout else self.timeout,
             allow_redirects=allow_redirects,
         )
         res.raise_for_status()

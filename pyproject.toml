@@ -1,8 +1,8 @@
 [project]
-name = "atlassian-plugin-remote-installaion"
+name = "atlassian-plugin-remote-install"
 
 description = "Remotely install plugin to Atlassian instance"
-version = "0.2.0"
+version = "0.5.0"
 
 authors = [{ name = "Trung Le", email = "trung.le@devsamurai.com" }]
 
@@ -15,7 +15,17 @@ dependencies = [
   "rich==12.5.1",
 ]
 [project.optional-dependencies]
-dev = ["black", "isort", "pylint", "tbump"]
+dev = [
+  "black",
+  "isort",
+  "mkdocs",
+  "mkdocs-click",
+  "mkdocs-material",
+  "mkdocs-include-markdown-plugin",
+  "pylint",
+  "pre-commit",
+  "tbump",
+]
 
 
 ############### tbump ###############
@@ -24,7 +34,7 @@ dev = ["black", "isort", "pylint", "tbump"]
 # github_url = "https://github.com/<user or organization>/<project>/"
 
 [tool.tbump.version]
-current = "0.2.0"
+current = "0.5.0"
 
 # Example of a semver regexp.
 # Make sure this matches current_version before
