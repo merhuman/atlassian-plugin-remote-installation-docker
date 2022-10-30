@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "12 7 * * 1,4"
   # scheduled at 07:12 every Monday and Thursday
-    workflow-dispatch:
+  workflow-dispatch:
 
 jobs:
   sync_with_upstream:
